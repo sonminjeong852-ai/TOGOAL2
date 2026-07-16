@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO GOAL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- 시작 화면 -->
+    <div id="startScreen">
+
+        <h1>🎯 TO GOAL</h1>
+
+        <h2>환영합니다!</h2>
+
+        <input
+            type="number"
+            id="ageInput"
+            placeholder="나이 입력">
+
+        <br><br>
+
+        <input
+            type="number"
+            id="goalHourInput"
+            placeholder="오늘 목표 공부시간 (시간)">
+
+        <br><br>
+
+        <button onclick="saveStartInfo()">
+            시작하기
+        </button>
+
+    </div>
+
+    <!-- 캐릭터 선택 -->
+    <div id="characterScreen" style="display:none;">
+
+        <h2>캐릭터 선택</h2>
+
+        <button onclick="selectCharacter('여우')">🦊 여우</button>
+        <button onclick="selectCharacter('원숭이')">🐵 원숭이</button>
+        <button onclick="selectCharacter('토끼')">🐰 토끼</button>
+        <button onclick="selectCharacter('수달')">🦦 수달</button>
+        <button onclick="selectCharacter('오리')">🦆 오리</button>
+        <button onclick="selectCharacter('호랑이')">🐯 호랑이</button>
+
+    </div>
+
+    <!-- 메인 게임 -->
+    <div id="gameScreen" style="display:none;">
+
+        <h1>🎯 TO GOAL</h1>
+
+        <h3 id="currentTime"></h3>
+
+        <h3 id="goalText"></h3>
+
+        <h3 id="locationText">
+            현재 위치 : 집
+        </h3>
+
+        <h3 id="levelText">
+            레벨 : 1
+        </h3>
+
+        <!-- 경험치 -->
+        <h3 id="expText">
+            경험치 : 0 / 100
+        </h3>
+
+        <div id="expContainer">
+            <div id="expBar"></div>
+        </div>
+
+        <h3 id="coinText">
+            코인 : 0
+        </h3>
+
+        <h3 id="totalStudyText">
+            총 공부시간 : 00:00:00
+        </h3>
+
+        <!-- 에너지바 -->
+        <div id="energyContainer">
+            <div id="energyBar"></div>
+        </div>
+
+        <p id="energyText">
+            에너지 : 100 / 100
+        </p>
+
+        <!-- 과목 선택 -->
+        <select id="subjectSelect">
+
+            <option value="">과목 선택</option>
+
+            <option>국어</option>
+            <option>수학</option>
+            <option>영어</option>
+            <option>한국사</option>
+
+            <option>생명과학</option>
+            <option>화학</option>
+            <option>물리</option>
+            <option>지구과학</option>
+
+            <option>생활과윤리</option>
+            <option>윤리와사상</option>
+
+        </select>
+
+        <br><br>
+
+        <!-- 배경 -->
+        <div id="backgroundArea">
+
+            <img
+                id="characterImage"
+                src=""
+                alt="캐릭터">
+
+        </div>
+
+        <!-- 타이머 -->
+        <h2 id="timerText">
+            00:00:00
+        </h2>
+
+        <button onclick="startStudy()">
+            공부 시작
+        </button>
+
+        <button onclick="endStudy()">
+            공부 종료
+        </button>
+
+        <button onclick="sleepCharacter()">
+            잠자기
+        </button>
+
+        <hr>
+
+        <button onclick="changeLocation('집')">
+            집
+        </button>
+
+        <button onclick="changeLocation('학교')">
+            학교
+        </button>
+
+        <button onclick="changeLocation('도서관')">
+            도서관
+        </button>
+
+        <button onclick="changeLocation('공원')">
+            공원
+        </button>
+
+        <hr>
+
+        <button onclick="openDiary()">
+            📖 일기장
+        </button>
+
+        <p id="message"></p>
+
+    </div>
+
+    <!-- 일기 화면 -->
+    <div id="diaryScreen" style="display:none;">
+
+        <h2>📖 오늘의 일기</h2>
+
+        <input
+            id="subjectInput"
+            placeholder="과목">
+
+        <br><br>
+
+        <textarea
+            id="diaryInput"
+            rows="6"
+            cols="40"
+            placeholder="오늘 한 일과 느낀점을 적어보세요"></textarea>
+
+        <br><br>
+
+        <button onclick="saveDiary()">
+            저장
+        </button>
+
+        <button onclick="showDiaryList()">
+            일기 보기
+        </button>
+
+        <button onclick="closeDiary()">
+            돌아가기
+        </button>
+
+        <div id="diaryList"></div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
